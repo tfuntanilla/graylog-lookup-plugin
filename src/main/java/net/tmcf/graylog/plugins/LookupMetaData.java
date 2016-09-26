@@ -41,8 +41,7 @@ public class LookupMetaData implements PluginMetaData {
 
     @Override
     public String getDescription() {
-        // TODO Insert correct plugin description
-        return "Description of Lookup plugin";
+        return "Replace certain fields' values based on values saved in lookup map.";
     }
 
     @Override

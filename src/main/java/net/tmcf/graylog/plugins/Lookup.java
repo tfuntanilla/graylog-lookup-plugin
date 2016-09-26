@@ -6,10 +6,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.graylog2.plugin.Message;
 import org.graylog2.plugin.filters.MessageFilter;
 
-/**
- * This is the plugin. Your class should implement one of the existing plugin
- * interfaces. (i.e. AlarmCallback, MessageInput, MessageOutput)
- */
 public class Lookup implements MessageFilter {
 	
 	private static final String NAME = "Lookup";

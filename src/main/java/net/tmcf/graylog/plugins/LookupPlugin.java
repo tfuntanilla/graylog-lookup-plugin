@@ -7,10 +7,8 @@ import org.graylog2.plugin.PluginModule;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * Implement the Plugin interface here.
- */
 public class LookupPlugin implements Plugin {
+	
     @Override
     public PluginMetaData metadata() {
         return new LookupMetaData();
@@ -20,4 +18,5 @@ public class LookupPlugin implements Plugin {
     public Collection<PluginModule> modules () {
         return Collections.<PluginModule>singletonList(new LookupModule());
     }
+    
 }

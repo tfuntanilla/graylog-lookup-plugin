@@ -3,6 +3,8 @@ package net.tmcf.graylog.plugins;
 import org.graylog2.plugin.PluginConfigBean;
 import org.graylog2.plugin.PluginModule;
 
+import com.google.inject.Scopes;
+
 import java.util.Collections;
 import java.util.Set;
 
@@ -22,23 +24,14 @@ public class LookupModule extends PluginModule {
 
     @Override
     protected void configure() {
-        /*
-         * Register your plugin types here.
-         *
-         * Examples:
-         *
-         * addMessageInput(Class<? extends MessageInput>);
-         * addMessageFilter(Class<? extends MessageFilter>);
-         * addMessageOutput(Class<? extends MessageOutput>);
-         * addPeriodical(Class<? extends Periodical>);
-         * addAlarmCallback(Class<? extends AlarmCallback>);
-         * addInitializer(Class<? extends Service>);
-         * addRestResource(Class<? extends PluginRestResource>);
-         *
-         *
-         * Add all configuration beans returned by getConfigBeans():
-         *
-         * addConfigBeans();
-         */
+    	
+    	bind(LookupService.class).to(LookupServiceImpl.class).in(Scopes.SINGLETON);
+    	
+    	addPeriodical(LookupPeriodical.class);
+    	addMessageFilter(Lookup.class);
+    	addRestResource(LookupPluginResource.class);
+    	
+    	addConfigBeans();
+    	
     }
 }
